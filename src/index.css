@@ -1,0 +1,15 @@
+@import 'tailwindcss';
+@font-face {
+    font-family: 'BeaufortForLoL';
+    src: url('/fonts/BeaufortForLoL-TTF/BeaufortforLOL-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+:root {
+    line-height: 1.5;
+    font-weight: 400;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

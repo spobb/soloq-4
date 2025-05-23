@@ -1,0 +1,32 @@
+.avatar {
+    display: flex;
+    place-items: center;
+    /* background-image: url('/borders/emerald.png'); */
+    background-size: 150%;
+    background-position-x: 50%;
+    background-position-y: 71%;
+    width: 256px;
+    height: 256px;
+    & img:not(.background-img) {
+        border-radius: 50%;
+        width: 128px;
+        height: 128px;
+    }
+    overflow: visible;
+}
+.img-wrapper {
+    width: 100%;
+    place-items: center;
+    position: relative;
+}
+.background-img {
+    position: absolute;
+    display: flex;
+    place-items: center;
+    width: 384px;
+    height: auto;
+    transform: translate(-64px, -50px);
+}
+.player:hover {
+    background: #0B121F;
+}
