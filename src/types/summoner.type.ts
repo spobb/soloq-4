@@ -1,4 +1,4 @@
-export type SummonerData = {
+export type Summoner = {
     leagueId: string,
     summonerId: string,
     puuid: string,
@@ -14,8 +14,9 @@ export type SummonerData = {
     inactive: boolean,
     miniSeries: MiniSeriesDTO,
     winRate: number,
-    totalLP?: number,
-    name: string
+    totalLP: number,
+    name: string,
+    coefficient: number
 }
 
 type MiniSeriesDTO = {

@@ -1,0 +1,51 @@
+html, body, #root {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+#root {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+body {
+    min-height: 100vh;
+    background:
+        /* linear-gradient(#0B121F 50%, #0B121F 90%, #548CB4) no-repeat, */
+        /* radial-gradient(ellipse at bottom, #548CB4, transparent); */
+        radial-gradient(circle at top, #0B121F 60%, transparent),
+        radial-gradient(ellipse at bottom, #1a3044, transparent);
+}
+main {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    flex: 1;
+}
+@keyframes sheen {
+    from {
+        background-position: 0% 0%;
+    }
+    to {
+        background-position: 100% 0%;
+    }
+}
+h2 {
+    background: linear-gradient(-45deg, #C4A15B 0%, #C4A15B 40%, #ffe7b7 50%, #C4A15B 60%);
+    background-clip: text;
+    background-size: 300%;
+}
+h2:hover {
+    color: transparent !important;
+    animation: sheen 3s 1;
+}
+.loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    place-items: center;
+}

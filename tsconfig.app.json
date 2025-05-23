@@ -10,7 +10,7 @@
 		/* Bundler mode */
 		"moduleResolution": "bundler",
 		"allowImportingTsExtensions": true,
-		"verbatimModuleSyntax": true,
+		"verbatimModuleSyntax": false,
 		"moduleDetection": "force",
 		"noEmit": true,
 		"jsx": "react-jsx",
@@ -21,7 +21,21 @@
 		"noUnusedParameters": true,
 		"erasableSyntaxOnly": false,
 		"noFallthroughCasesInSwitch": true,
-		"noUncheckedSideEffectImports": true
+		"noUncheckedSideEffectImports": true,
+
+		"baseUrl": ".",
+		"paths": {
+			"types/*": ["src/types/*"],
+			"assets/*": ["src/assets/*"],
+			"contexts/*": ["src/contexts/*"],
+			"data/*": ["src/data/*"],
+			"config/*": ["src/config/*"],
+			"services/*": ["src/services/*"],
+			"enums/*": ["src/enums/*"],
+			"pages/*": ["src/pages/*"],
+			"components/*": ["src/ui/components/*"],
+			"layout/*": ["src/ui/layout/*"]
+		}
 	},
 	"include": ["src"]
 }

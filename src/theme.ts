@@ -4,7 +4,7 @@ export const theme = createTheme({
     palette: {
         mode: 'dark',
         primary: {
-            main: '#1A5CC8',
+            main: '#B0B8C1',
             dark: '#29325F',
             contrastText: '#FFFFFF',
         },
@@ -70,6 +70,20 @@ export const theme = createTheme({
                 root: {
                     '&:last-child td, &:last-child th': {
                         borderBottom: 'none',
+                    },
+                },
+            },
+        },
+        MuiButtonBase: {
+            defaultProps: {
+                disableRipple: true,
+            },
+        },
+        MuiPopover: {
+            defaultProps: {
+                PaperProps: {
+                    sx: {
+                        backgroundColor: '#000',
                     },
                 },
             },

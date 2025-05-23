@@ -7,3 +7,14 @@
     color: transparent !important;
     animation: sheen 2s 1;
 }
+.header {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: rgba(11, 18, 31, 0.7);
+    backdrop-filter: blur(2px);
+    z-index: 1;
+}

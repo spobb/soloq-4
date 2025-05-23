@@ -1,4 +1,5 @@
 export const ROUTES = {
     HOME: '/',
-    PROFILE: '/profile'
+    PLAYER: '/joueur/:name',
+    RULES: '/regles'
 }
