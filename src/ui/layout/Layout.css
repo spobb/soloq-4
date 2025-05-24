@@ -2,6 +2,11 @@ html, body, #root {
     min-height: 100vh;
     margin: 0;
     padding: 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
 #root {
     display: flex;
@@ -23,11 +28,19 @@ main {
     flex: 1;
 }
 @keyframes sheen {
-    from {
+    0% {
         background-position: 0% 0%;
     }
-    to {
+    33%, 100% {
         background-position: 100% 0%;
+    }
+}
+@keyframes sheen-header {
+    0% {
+        background-position: -100% 0%, center center;
+    }
+    33%, 100% {
+        background-position: 100% 0%, center center;
     }
 }
 h2 {
@@ -48,4 +61,15 @@ h2:hover {
     flex-direction: column;
     gap: 1rem;
     place-items: center;
+}
+.lol-button {
+    border-color: 8px solid transparent !important;
+    /* border-image: linear-gradient(#08abac, #01698b) 1 !important; */
+    border-image: linear-gradient(#C4A15B, #7a5917) 1 !important;
+    transition: box-shadow .5s;
+    &:hover {
+        box-shadow:
+            0 0 10px 1px #c0fcfd66;
+        /* inset 0 0 5px 2px #c0fcfd4d; */
+    }
 }

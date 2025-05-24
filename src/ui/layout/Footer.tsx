@@ -11,7 +11,7 @@ import { HoverPopover } from 'components/HoverPopover';
 export function Footer(): ReactElement {
     return (
         <footer>
-            <Divider />
+            <Divider sx={{ marginTop: '8rem' }} />
             <Box sx={{ padding: '4rem 16vw' }} className="footer">
                 <Toolbar>
                     <Typography variant="h5" component='a' href="https://github.com/spobb" marginRight='auto'>

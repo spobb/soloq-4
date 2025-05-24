@@ -6,7 +6,7 @@
     background-position-x: 50%;
     background-position-y: 71%;
     width: 256px;
-    height: 256px;
+    height: 192px;
     & img:not(.background-img) {
         border-radius: 50%;
         width: 128px;
@@ -28,17 +28,27 @@
     width: 384px;
     height: auto;
     transform: translate(-64px, -50px);
-}
-/* table {
-    overflow: hidden;
-}
-table:hover .player {
-    filter: blur(1px) brightness(80%);
-    transition: all .5s;
+    /* filter: drop-shadow(0 0 5px pink); */
 }
 .player {
-    transition: all .5s;
+    border: 4px solid transparent;
+    border-image: linear-gradient(#C4A15B 70%, #7a5917) 1;
+    background: linear-gradient(175deg, #0B121F 50%, #0f1d2b);
+    transition: box-shadow ease .5s;
 }
 .player:hover {
-    filter: none !important;
-} */
+    box-shadow:
+        0 0 10px 4px #c0fcfd66;
+    /* inset 0 0 5px 2px rgba(192, 252, 253, .3); */
+    /* border: 3px solid rgba(192, 252, 253, .75); */
+    cursor: pointer;
+}
+.cell {
+    display: flex;
+    flex: 1;
+    place-items: center;
+    text-align: center;
+    & > * {
+        flex: 1
+    }
+}

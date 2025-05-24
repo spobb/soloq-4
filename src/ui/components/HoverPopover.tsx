@@ -38,6 +38,7 @@ export function HoverPopover({ children, text }: { children: ReactNode, text: st
                     horizontal: 'center',
                 }}
                 onClose={handlePopoverClose}
+                disableScrollLock
             >
                 <Typography sx={{ p: 1 }} color="primary">{text}</Typography>
             </Popover>
