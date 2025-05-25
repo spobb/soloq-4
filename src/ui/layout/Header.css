@@ -1,5 +1,5 @@
 .home-button {
-    background: linear-gradient(#C4A15B 40%, #7a5917);
+    background: linear-gradient(var(--gold-light) 40%, var(--gold-dark));
     background-clip: text;
     background-size:
         100% 100%;
@@ -9,13 +9,13 @@
 .home-button:hover {
     background:
         linear-gradient(-45deg, transparent 0%, transparent 40%, #ffffff 50%, transparent 60%),
-        linear-gradient(#C4A15B, #7a5917);
+        linear-gradient(var(--gold-light), var(--gold-dark));
     background-size:
         300% 100%,
         100% 100%;
     background-clip: text;
-    text-shadow: 0 0 .25rem #C4A15B;
-    animation: sheen 5s infinite;
+    text-shadow: 0 0 .25rem var(--gold-light);
+    animation: sheen 3s infinite;
 }
 .header {
     display: flex;
@@ -24,8 +24,8 @@
     position: sticky;
     top: 0;
     left: 0;
-    background-color: rgba(11, 18, 31, 0.7);
+    background-color: var(--bg-blue-dark-transparent);
     backdrop-filter: blur(2px);
-    z-index: 1;
+    z-index: 10;
     margin-bottom: 8rem;
 }

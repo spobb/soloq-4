@@ -12,4 +12,33 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* UI */
+    --bg-teal-dark: #1a3044;
+    --bg-blue-light: #0f1d2b;
+    --bg-blue-dark: #0B121F;
+    --bg-blue-dark-transparent: #0b121fbf;
+    --grey-light: #303030;
+    --grey-dark: #202020;
+    --gold-light: #C4A15B;
+    --gold-dark: #7a5917;
+    --white-gold: #ffe7b7;
+    /* CHALLENGE RANKING */
+    /* uses gold from UI colors */
+    --silver-light: #C0C0C0;
+    --silver-dark: #707070;
+    --bronze-light: #86473F;
+    --bronze-dark: #4C2F27;
+    /* GAME RANKS */
+    --rank-unranked: #ffffff;
+    --rank-iron: #505050;
+    --rank-bronze: #965A32;
+    --rank-silver: #C0C0C0;
+    --rank-gold: #FFD700;
+    --rank-platinum: #00B4A0;
+    --rank-emerald: #50C878;
+    --rank-diamond: #00B4FF;
+    --rank-master: #f156ff;
+}
+.icon-bg {
+    background: radial-gradient(var(--bg-blue-light), var(--bg-blue-dark)) !important;
 }

@@ -4,6 +4,7 @@ import { Box, Typography } from '@mui/material';
 import type { Summoner } from "types/summoner.type";
 import { fetchService } from "services/fetch.service";
 import { PLAYER_LIST } from "data/player.data";
+import { HoverPopover } from "components/HoverPopover";
 
 export function PlayerPage(): ReactElement | undefined {
     const [data, setData] = useState<Summoner | null>(null);
@@ -32,6 +33,20 @@ export function PlayerPage(): ReactElement | undefined {
     if (!data) return <div>No data available</div>;
 
     return (<>
+        <div className="avatar">
+            {data.tier && <img
+                src={`/borders/${data.tier}.png`}
+                alt={`${data.tier} rank border`}
+                className={`background-img ${(data.tier.toLowerCase())}`}
+            />}
+            <div className="img-wrapper">
+                <HoverPopover text={data.name}>
+                    <img onError={(e) => { e.currentTarget.src = 'https://placehold.co/128x128' }}
+                        src={`/avatars/${data.name}`}
+                    />
+                </HoverPopover>
+            </div>
+        </div>
         <Box sx={{ flex: 1 }}>
             <>Wins: {data.wins}</>
             <>Losses: {data.losses}</>

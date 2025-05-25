@@ -5,12 +5,12 @@
     background-size: 150%;
     background-position-x: 50%;
     background-position-y: 71%;
-    width: 256px;
-    height: 192px;
+    width: 128px;
+    height: 128px;
     & img:not(.background-img) {
         border-radius: 50%;
-        width: 128px;
-        height: 128px;
+        width: 96px;
+        height: 96px;
     }
     overflow: hidden;
 }
@@ -18,6 +18,7 @@
     width: 100%;
     place-items: center;
     position: relative;
+    z-index: 2;
 }
 .background-img {
     position: absolute;
@@ -25,23 +26,73 @@
     place-items: center;
     pointer-events: none;
     overflow: hidden;
-    width: 384px;
+    width: 288px;
     height: auto;
-    transform: translate(-64px, -50px);
-    /* filter: drop-shadow(0 0 5px pink); */
+    transform: translate(-80px, -37.5px);
+    z-index: 1;
+    transition: filter 1s;
 }
 .player {
     border: 4px solid transparent;
-    border-image: linear-gradient(#C4A15B 70%, #7a5917) 1;
-    background: linear-gradient(175deg, #0B121F 50%, #0f1d2b);
+    border-image: linear-gradient(var(--grey-light) 70%, var(--grey-dark)) 1;
+    background: radial-gradient(var(--bg-blue-light), var(--bg-blue-dark));
     transition: box-shadow ease .5s;
+    & .border-divider {
+        border-left: 4px solid transparent;
+        border-image: linear-gradient(var(--grey-light) 70%, var(--grey-dark)) 1;
+    }
+}
+.gold-border {
+    border: 4px solid transparent;
+    border-image: linear-gradient(var(--gold-light) 70%, var(--gold-dark)) 1;
+    & .border-divider {
+        border-left: 4px solid transparent;
+        border-image: linear-gradient(var(--gold-light) 70%, var(--gold-dark)) 1;
+    }
+}
+.silver-border {
+    border: 4px solid transparent;
+    border-image: linear-gradient(var(--silver-light) 70%, var(--silver-dark)) 1;
+    & .border-divider {
+        border-left: 4px solid transparent;
+        border-image: linear-gradient(var(--silver-light) 70%, var(--silver-dark)) 1;
+    }
+}
+.bronze-border {
+    border: 4px solid transparent;
+    border-image: linear-gradient(var(--bronze-light) 70%, var(--bronze-dark)) 1;
+    & .border-divider {
+        border-left: 4px solid transparent;
+        border-image: linear-gradient(var(--bronze-light) 70%, var(--bronze-dark)) 1;
+    }
 }
 .player:hover {
-    box-shadow:
-        0 0 10px 4px #c0fcfd66;
-    /* inset 0 0 5px 2px rgba(192, 252, 253, .3); */
-    /* border: 3px solid rgba(192, 252, 253, .75); */
     cursor: pointer;
+    /* CSS classes for each rank -> easier than setting this rule dynamically in Player component */
+    & .iron {
+        filter: drop-shadow(0 0 8px var(--rank-iron));
+    }
+    & .bronze {
+        filter: drop-shadow(0 0 8px var(--rank-bronze));
+    }
+    & .silver {
+        filter: drop-shadow(0 0 8px var(--rank-silver));
+    }
+    & .gold {
+        filter: drop-shadow(0 0 8px var(--rank-gold));
+    }
+    & .platinum {
+        filter: drop-shadow(0 0 8px var(--rank-platinum));
+    }
+    & .emerald {
+        filter: drop-shadow(0 0 8px var(--rank-emerald));
+    }
+    & .diamond {
+        filter: drop-shadow(0 0 8px var(--rank-diamond));
+    }
+    & .master {
+        filter: drop-shadow(0 0 8px var(--rank-master));
+    }
 }
 .cell {
     display: flex;
@@ -49,6 +100,22 @@
     place-items: center;
     text-align: center;
     & > * {
-        flex: 1
+        flex: 1;
+        place-items: center;
     }
+}
+.player-main {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    text-align: center;
+    & > div {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+}
+.player-name {
+    font-size: 1.5rem !important;
+    padding: 1rem 0;
 }

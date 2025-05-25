@@ -16,7 +16,8 @@ export type Summoner = {
     winRate: number,
     totalLP: number,
     name: string,
-    coefficient: number
+    coefficient: number,
+    tagLine?: string
 }
 
 type MiniSeriesDTO = {

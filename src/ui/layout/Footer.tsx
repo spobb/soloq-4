@@ -1,7 +1,6 @@
 import type { ReactElement } from "react";
 import { Typography, IconButton, Box, Toolbar, SvgIcon, Divider } from "@mui/material";
 
-import './Footer.css';
 import riotIcon from 'assets/riot.svg?react';
 import lolIcon from 'assets/lol.svg?react'
 import GitHubIcon from '@mui/icons-material/GitHub';
