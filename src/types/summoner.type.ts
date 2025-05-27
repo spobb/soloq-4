@@ -13,8 +13,10 @@ export type Summoner = {
     freshBlood: boolean,
     inactive: boolean,
     miniSeries: MiniSeriesDTO,
+    // CUSTOM KEYS
     winRate: number,
     totalLP: number,
+    adjustedLP: number,
     name: string,
     coefficient: number,
     tagLine?: string

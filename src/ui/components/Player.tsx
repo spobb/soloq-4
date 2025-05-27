@@ -70,7 +70,7 @@ export function Player({ data, position }: { data: Summoner | null, position: nu
                 </Grid>
                 {/* WINRATE GRID CELL */}
                 <Grid className="cell" flex={1} flexDirection='column'>
-                    <Winrate wins={data.wins} losses={data.losses} />
+                    <Winrate winRate={data.winRate} />
                     <Typography variant="body1" fontSize='1rem'>
                         {data.wins} / {data.losses}
                     </Typography>

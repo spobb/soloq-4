@@ -36,7 +36,7 @@ export async function getSummoners(): Promise<(Summoner | null)[]> {
 
                 if (!soloQueueData) return { ...emptySummoner, ...player } as Summoner;
 
-                const { tier, rank, leaguePoints } = soloQueueData;
+                const { tier, rank, leaguePoints, wins, losses } = soloQueueData;
 
                 const divNumber = Division[tier as keyof typeof Division];
                 const rankNumber = Rank[rank as keyof typeof Rank];
@@ -49,7 +49,10 @@ export async function getSummoners(): Promise<(Summoner | null)[]> {
                     totalLP = (divNumber * 400) + (rankNumber * 100) + leaguePoints;
                 }
 
-                return { ...soloQueueData, totalLP: totalLP, ...player } as Summoner;
+                const adjustedLP = Math.round(totalLP * player.coefficient);
+                const winRate = (wins / (wins + losses) * 100);
+
+                return { ...soloQueueData, winRate: winRate, totalLP: totalLP, adjustedLP: adjustedLP, ...player } as Summoner;
             })
         );
         storageService.set<(Summoner | null)[]>('summoners', data, (2 * 60 * 1000));

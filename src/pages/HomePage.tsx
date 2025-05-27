@@ -1,4 +1,4 @@
-import { type ReactElement } from "react";
+import { ReactElement } from "react";
 
 import { useSummoner } from "contexts/SummonerContext";
 import { Player } from "components/Player";
@@ -8,7 +8,11 @@ import { Typography, Box, CircularProgress, Grid } from "@mui/material";
 
 
 export function HomePage(): ReactElement {
-    const { summoners, loading, error } = useSummoner();
+    const { summoners, loading, error, setSortBy } = useSummoner();
+
+    function handleClick(label: string) {
+        setSortBy(label);
+    }
 
     if (loading) return (<Box className="loading">
         <CircularProgress color="secondary" />
@@ -25,13 +29,13 @@ export function HomePage(): ReactElement {
             <Grid container columns={7} textAlign='center' flex={1}>
                 <Grid size={4} />
                 <Grid flex={1} marginRight='4px'>
-                    <ColumnHeader title="W / L" />
+                    <ColumnHeader title="W / L" onClick={handleClick} label='winRate' />
                 </Grid>
                 <Grid flex={1} marginRight='4px'>
-                    <ColumnHeader title="LP" />
+                    <ColumnHeader title="LP" onClick={handleClick} label='totalLP' />
                 </Grid>
                 <Grid flex={1} marginRight='4px'>
-                    <ColumnHeader title="LP ajustés" />
+                    <ColumnHeader title="LP ajustés" onClick={handleClick} label='adjustedLP' />
                 </Grid>
             </Grid >
             <Box width='100%' marginTop='2rem' display='flex' flexDirection='column' gap='2rem'>
