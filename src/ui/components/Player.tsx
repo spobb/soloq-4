@@ -25,7 +25,7 @@ export function Player({ data }: { data: Summoner | null }) {
     const leagueRankFR = DivisionFR[data?.tier as keyof typeof DivisionFR];
 
     function handleClick() {
-        navigate(`/joueur/${data?.name}`, { state: data });
+        navigate(`/joueur/${data?.gameName}`, { state: data });
     }
 
     return (<>
@@ -44,9 +44,9 @@ export function Player({ data }: { data: Summoner | null }) {
                             className={`background-img ${(data.tier.toLowerCase())}`}
                         />}
                         <div className="img-wrapper">
-                            <HoverPopover text={data.name}>
+                            <HoverPopover text={data.gameName}>
                                 <img onError={(e) => { e.currentTarget.src = 'https://placehold.co/96x96' }}
-                                    src={`/avatars/${data.name}`}
+                                    src={`/avatars/${data.gameName}`}
                                 />
                             </HoverPopover>
                         </div>
@@ -60,7 +60,7 @@ export function Player({ data }: { data: Summoner | null }) {
                             component='h4'
                             className="player-name"
                             color={challengeRankColorVar}
-                        >{data.name}</Typography>
+                        >{data.gameName}</Typography>
                         <Chip
                             variant="outlined"
                             label={`${leagueRankFR} ${data.rank}`}

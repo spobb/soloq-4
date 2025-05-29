@@ -11,9 +11,9 @@ export function sort(arr: Summoner[], sortBy: string, direction: string | boolea
         const valA = a[key];
         const valB = b[key];
 
-        if (!valA && !valB) return 0;
-        if (!valA) return 1;
-        if (!valB) return -1;
+        if (valA === undefined && valB === undefined) return 0;
+        if (valA === undefined) return 1;
+        if (valB === undefined) return -1;
 
         if (direction == 'asc') {
             return valA > valB ? 1 :

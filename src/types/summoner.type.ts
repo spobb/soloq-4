@@ -17,7 +17,7 @@ export type Summoner = {
     winRate: number,
     totalLP: number,
     adjustedLP: number,
-    name: string,
+    gameName: string,
     coefficient: number,
     tagLine?: string,
     position: number

@@ -15,6 +15,7 @@ const emptySummoner = {
     losses: 0,
     winRate: 0,
     totalLP: 0,
+    adjustedLP: -Infinity,
     leagueId: '',
     summonerId: '',
     queueType: 'RANKED_SOLO_5x5',
@@ -65,6 +66,7 @@ export async function getSummoners(): Promise<(Summoner)[]> {
             })
         );
         const sortedData = sort(data, 'adjustedLP', 'desc');
+        console.log(data, sortedData);
         for (let i = 0; i < sortedData.length; i++) {
             sortedData[i].position = i + 1;
         }
