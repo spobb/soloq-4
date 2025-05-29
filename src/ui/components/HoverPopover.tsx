@@ -42,7 +42,7 @@ export function HoverPopover({ children, text }: { children: ReactNode, text: st
                 disableEnforceFocus
                 inert
             >
-                <Typography sx={{ p: 1 }} color="primary">{text}</Typography>
+                <Typography sx={{ p: 1 }} color="primary" fontSize='1.1rem' fontFamily='Spiegel'>{text}</Typography>
             </Popover>
         </>
     );

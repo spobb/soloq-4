@@ -19,7 +19,8 @@ export type Summoner = {
     adjustedLP: number,
     name: string,
     coefficient: number,
-    tagLine?: string
+    tagLine?: string,
+    position: number
 }
 
 type MiniSeriesDTO = {

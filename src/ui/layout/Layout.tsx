@@ -7,7 +7,7 @@ import { Footer } from "./Footer";
 import { CircularProgress, Typography, Box } from "@mui/material";
 
 import './Layout.css';
-import { useSummoner } from "contexts/SummonerContext";
+import { useSummoner } from "src/features/SummonerContext";
 
 export function Layout(): ReactElement {
     const { loading } = useSummoner();

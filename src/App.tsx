@@ -5,12 +5,14 @@ import { Layout } from "layout/Layout";
 import { HomePage } from 'pages/HomePage';
 import { RulesPage } from 'pages/RulesPage';
 import { PlayerPage } from 'pages/PlayerPage';
-import { SummonerProvider } from 'contexts/SummonerContext';
+import { SummonerProvider } from 'features/SummonerContext';
+import { BodyStyleManager } from 'features/BodyStyleManager';
 
 
 function App() {
     return (
         <SummonerProvider>
+            <BodyStyleManager />
             <Routes>
                 <Route path={ROUTES.HOME} element={<Layout />}>
                     <Route path={ROUTES.HOME} element={<HomePage />} />

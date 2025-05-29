@@ -27,5 +27,5 @@
     background-color: var(--bg-blue-dark-transparent);
     backdrop-filter: blur(2px);
     z-index: 10;
-    margin-bottom: 8rem;
+    margin-bottom: 6rem;
 }

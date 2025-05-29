@@ -1,0 +1,44 @@
+.avatar-big {
+    display: flex;
+    align-items: flex-end;
+    width: 384px;
+    margin-bottom: 4rem;
+    margin-top: 250px;
+    overflow: visible;
+}
+.background-img-big {
+    position: absolute;
+    display: flex;
+    place-items: center;
+    pointer-events: none;
+    width: 384px;
+    z-index: 1;
+    transition: filter 1s;
+    transform: translate(0, 135px);
+}
+.img-wrapper-big {
+    width: 100%;
+    height: auto;
+    place-items: center;
+    position: relative;
+    z-index: 2;
+    & img {
+        border-radius: 50%;
+        width: 128px;
+        height: 128px;
+    }
+}
+.banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 800px;
+    width: 512px;
+    background: url('/banners/unranked') no-repeat;
+    background-position: center;
+    transform: translateY(-6rem);
+    background-size: 800px;
+}
+.player-page-body {
+    background: #fff;
+}

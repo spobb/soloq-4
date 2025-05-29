@@ -8,18 +8,25 @@ import './Header.css';
 export function Header(): ReactElement {
     return (<div className="header">
         <AppBar
-            sx={{ boxShadow: 'none', paddingBottom: '4rem', padding: 4, backdropFilter: 'blur(2px)', background: 'inherit' }}
+            sx={{
+                boxShadow: 'none',
+                // paddingBottom: '4rem',
+                padding: 2,
+                backdropFilter:
+                    'blur(2px)',
+                background: 'inherit'
+            }}
             position="sticky"
         >
             <Toolbar>
                 <Typography variant="h2" component='a' href="/" marginRight='auto' className="home-button">
                     SoloQ IV
                 </Typography>
-                <Button href="#" variant="outlined" color="secondary" size="large" endIcon={<NotesIcon />} className="lol-button">
+                <Button href="#" variant="outlined" color="secondary" size="large" endIcon={<NotesIcon />} className="lol-button icon-bg">
                     Documentation
                 </Button>
                 <Divider sx={{ marginX: 2 }} />
-                <Button href="/regles" variant="outlined" color="secondary" size="large" endIcon={<GavelIcon />} className="lol-button">
+                <Button href="/regles" variant="outlined" color="secondary" size="large" endIcon={<GavelIcon />} className="lol-button icon-bg">
                     Règles
                 </Button>
             </Toolbar>

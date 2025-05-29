@@ -80,13 +80,13 @@ export const theme = createTheme({
             },
         },
         MuiPopover: {
-            defaultProps: {
-                PaperProps: {
-                    sx: {
-                        backgroundColor: '#000',
-                    },
-                },
-            },
+            styleOverrides: {
+                paper: {
+                    border: '2px solid transparent',
+                    borderImage: 'linear-gradient(var(--gold-light) 70%, var(--gold-dark)) 1',
+                    background: 'var(--grey-dark)',
+                }
+            }
         },
     },
 });

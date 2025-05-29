@@ -6,12 +6,13 @@ import lolIcon from 'assets/lol.svg?react'
 import GitHubIcon from '@mui/icons-material/GitHub';
 
 import { HoverPopover } from 'components/HoverPopover';
+import './Footer.css';
 
 export function Footer(): ReactElement {
     return (
         <footer>
-            <Divider sx={{ marginTop: '8rem' }} />
-            <Box sx={{ padding: '4rem 16vw' }} className="footer">
+            <Divider />
+            <Box sx={{ padding: '2rem 16vw' }} className="footer">
                 <Toolbar>
                     <Typography variant="h5" component='a' href="https://github.com/spobb" marginRight='auto'>
                     </Typography>

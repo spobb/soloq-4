@@ -6,6 +6,8 @@ import { fetchService } from "services/fetch.service";
 import { PLAYER_LIST } from "data/player.data";
 import { HoverPopover } from "components/HoverPopover";
 
+import './PlayerPage.css';
+
 export function PlayerPage(): ReactElement | undefined {
     const [data, setData] = useState<Summoner | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
@@ -32,31 +34,37 @@ export function PlayerPage(): ReactElement | undefined {
     if (error) return <div>Error: {error}</div>;
     if (!data) return <div>No data available</div>;
 
-    return (<>
-        <div className="avatar">
-            {data.tier && <img
-                src={`/borders/${data.tier}.png`}
-                alt={`${data.tier} rank border`}
-                className={`background-img ${(data.tier.toLowerCase())}`}
-            />}
-            <div className="img-wrapper">
-                <HoverPopover text={data.name}>
+    return (<Box sx={{
+        display: 'flex',
+        flexDirection: 'row',
+        minHeight: '65vh',
+        width: '100%',
+        maxWidth: '1920px'
+    }}>
+        <Box className="banner">
+            <div className="avatar-big">
+                {data.tier && <img
+                    src={`/borders/${data.tier}.png`}
+                    alt={`${data.tier} rank border`}
+                    className={`background-img-big ${(data.tier.toLowerCase())}`}
+                />}
+                <div className="img-wrapper-big">
                     <img onError={(e) => { e.currentTarget.src = 'https://placehold.co/128x128' }}
                         src={`/avatars/${data.name}`}
                     />
-                </HoverPopover>
+                </div>
             </div>
-        </div>
-        <Box sx={{ flex: 1 }}>
-            <>Wins: {data.wins}</>
-            <>Losses: {data.losses}</>
-            <>Win rate: {`${(data.wins / (data.wins + data.losses) * 100).toFixed(2)}%`}</>
+            <Box sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'baseline'
+            }}>
+                <HoverPopover text={`${data.name}#${data.tagLine}`}>
+                    <Typography variant="h4" color='text.secondary' textAlign='center'>
+                        {data.name}
+                    </Typography>
+                </HoverPopover>
+            </Box>
         </Box>
-        <Typography variant='h2'>
-            {data && data.totalLP}
-        </Typography>
-        <Typography variant='h2'>
-            {data && data.totalLP}
-        </Typography>
-    </>)
+    </Box>)
 }

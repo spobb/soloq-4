@@ -1,25 +1,48 @@
-import { ReactElement, useState } from "react";
+import { ReactNode } from "react";
 
-import { Box, Typography, Divider, ButtonBase } from "@mui/material";
+import { Box, Divider, ButtonBase } from "@mui/material";
 import SortIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
+import { useSummoner } from "features/SummonerContext";
 
-export function ColumnHeader({ title, onClick, label }: { title: string, onClick: CallableFunction, label: string }): ReactElement {
-    const [direction, setDirection] = useState<'asc' | 'desc'>('asc');
+export function ColumnHeader({ children, label }: { children: ReactNode, label: string }) {
+    const { sortBy, setSortBy, sortDirection, setSortDirection } = useSummoner();
+    const isSortedBy = sortBy == label;
 
-
-    return (<>
-        <Box sx={{ display: 'flex', height: '100%', alignItems: 'flex-end', paddingBottom: '1rem', justifyContent: 'center' }}>
-            <Box sx={{ width: '3rem' }} />
-            <Typography color="text.disabled" flex={1} sx={{ textWrap: 'nowrap' }}>
-                {title}
-            </Typography>
-            <ButtonBase onClick={() => { setDirection(direction == 'asc' ? 'desc' : 'asc'); onClick(label) }}>
-                <SortIcon color="primary" sx={{
-                    transform: direction == 'asc' ? 'scaleY(-1)' : 'scaleY(1)',
-                    width: '3rem'
-                }} />
-            </ButtonBase>
-        </Box >
-        <Divider variant="middle" />
-    </>)
+    function handleClick() {
+        if (isSortedBy) {
+            setSortDirection(sortDirection == 'asc' ? 'desc' : 'asc');
+        } else {
+            setSortDirection('desc');
+        }
+        setSortBy(label);
+    }
+    return (
+        <>
+            <Box
+                onClick={handleClick}
+                sx={{
+                    display: 'flex',
+                    height: '100%',
+                    alignItems: 'flex-end',
+                    paddingBottom: '1rem',
+                    justifyContent: 'center',
+                }}
+            >
+                <Box sx={{ width: '3rem' }} />
+                {children}
+                <ButtonBase>
+                    <SortIcon
+                        color={isSortedBy ? 'primary' : 'disabled'}
+                        sx={{
+                            transform: sortDirection == 'asc'
+                                ? isSortedBy ? 'scaleY(-1)' : 'scaleY(1)'
+                                : isSortedBy ? 'scaleY(1)' : 'scaleY(-1)',
+                            width: '3rem',
+                        }}
+                    />
+                </ButtonBase>
+            </Box>
+            <Divider variant="middle" />
+        </>
+    );
 }

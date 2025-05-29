@@ -5,6 +5,7 @@ import { Rank } from "enums/rank.enum";
 
 import { PLAYER_LIST } from "data/player.data";
 import storageService from "services/storage.service";
+import { sort } from 'services/sort.service';
 
 const emptySummoner = {
     tier: 'UNRANKED',
@@ -21,10 +22,11 @@ const emptySummoner = {
     veteran: false,
     freshBlood: false,
     inactive: false,
+    position: 0,
     miniSeries: {},
 }
 
-export async function getSummoners(): Promise<(Summoner | null)[]> {
+export async function getSummoners(): Promise<(Summoner)[]> {
     const storageValue = storageService.get<Summoner[]>('summoners');
     const localData = storageValue?.value;
 
@@ -34,6 +36,7 @@ export async function getSummoners(): Promise<(Summoner | null)[]> {
                 const incomingData: Summoner[] = await fetchService(`/lol/league/v4/entries/by-puuid/${player.puuid}`);
                 const soloQueueData = incomingData.find(d => d.queueType === "RANKED_SOLO_5x5");
 
+                // return empty summoner is API returns nothing
                 if (!soloQueueData) return { ...emptySummoner, ...player } as Summoner;
 
                 const { tier, rank, leaguePoints, wins, losses } = soloQueueData;
@@ -52,11 +55,22 @@ export async function getSummoners(): Promise<(Summoner | null)[]> {
                 const adjustedLP = Math.round(totalLP * player.coefficient);
                 const winRate = (wins / (wins + losses) * 100);
 
-                return { ...soloQueueData, winRate: winRate, totalLP: totalLP, adjustedLP: adjustedLP, ...player } as Summoner;
+                return {
+                    ...soloQueueData,
+                    winRate,
+                    totalLP,
+                    adjustedLP,
+                    ...player
+                } as Summoner;
             })
         );
-        storageService.set<(Summoner | null)[]>('summoners', data, (2 * 60 * 1000));
-        return data;
+        const sortedData = sort(data, 'adjustedLP', 'desc');
+        for (let i = 0; i < sortedData.length; i++) {
+            sortedData[i].position = i + 1;
+        }
+
+        storageService.set<(Summoner)[]>('summoners', sortedData, (2 * 60 * 1000));
+        return sortedData;
     }
     return localData;
 }

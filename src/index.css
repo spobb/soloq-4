@@ -5,6 +5,12 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'Spiegel';
+    src: url('/fonts/Spiegel-TTF/Spiegel_TT_Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 :root {
     line-height: 1.5;
     font-weight: 400;
@@ -41,4 +47,26 @@
 }
 .icon-bg {
     background: radial-gradient(var(--bg-blue-light), var(--bg-blue-dark)) !important;
+    /* background: var(--grey-dark) !important; */
+    /* &:hover {
+        background: var(--grey-light) !important;
+    } */
+}
+.loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    place-items: center;
+}
+.lol-button {
+    border-width: 1px solid transparent !important;
+    border-image: linear-gradient(var(--gold-light), var(--gold-dark)) 1 !important;
+    transition: all .5s;
+    &:hover {
+        box-shadow: 0 0 10px 1px #c0fcfd66;
+    }
 }

@@ -68,6 +68,9 @@
 }
 .player:hover {
     cursor: pointer;
+}
+.player:hover,
+.avatar-big:hover {
     /* CSS classes for each rank -> easier than setting this rule dynamically in Player component */
     & .iron {
         filter: drop-shadow(0 0 8px var(--rank-iron));
@@ -106,6 +109,7 @@
 }
 .player-main {
     display: flex;
+    padding-left: 1rem;
     flex: 1;
     align-items: center;
     text-align: center;

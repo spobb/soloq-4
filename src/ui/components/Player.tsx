@@ -1,4 +1,3 @@
-import { type ReactElement } from "react";
 import { useNavigate } from "react-router-dom";
 import { Typography, Box, Grid, Chip } from "@mui/material";
 
@@ -9,19 +8,20 @@ import { Winrate } from "./Winrate";
 import './Player.css';
 import { DivisionFR } from "enums/division.enum";
 
-const RANKINGS = ['gold', 'silver', 'bronze'];
+const RANKINGS = ['', 'gold', 'silver', 'bronze'];
 
-export function Player({ data, position }: { data: Summoner | null, position: number }): ReactElement | undefined {
+export function Player({ data }: { data: Summoner | null }) {
     const navigate = useNavigate();
 
     if (!data) return;
+    const ranking = RANKINGS[data.position];
 
     // current League rank as a CSS var -> color attribute
     const leagueRankColorVar = `var(--rank-${data?.tier.toLowerCase()})`;
     // current challenge ranking as a string to complete CSS classes
-    const challengeRankColor = RANKINGS[position] || '';
+    const challengeRankColor = ranking;
     // current challenge ranking as a CSS var -> color attribute
-    const challengeRankColorVar = RANKINGS[position] ? `var(--${RANKINGS[position]}-light)` : '';
+    const challengeRankColorVar = ranking ? `var(--${ranking}-light)` : '';
     const leagueRankFR = DivisionFR[data?.tier as keyof typeof DivisionFR];
 
     function handleClick() {
@@ -45,7 +45,7 @@ export function Player({ data, position }: { data: Summoner | null, position: nu
                         />}
                         <div className="img-wrapper">
                             <HoverPopover text={data.name}>
-                                <img onError={(e) => { e.currentTarget.src = 'https://placehold.co/128x128' }}
+                                <img onError={(e) => { e.currentTarget.src = 'https://placehold.co/96x96' }}
                                     src={`/avatars/${data.name}`}
                                 />
                             </HoverPopover>
