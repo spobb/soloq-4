@@ -8,19 +8,15 @@
 }
 .home-button:hover {
     background:
-        linear-gradient(-45deg, transparent 0%, transparent 40%, #ffffff 50%, transparent 60%),
-        linear-gradient(var(--gold-light), var(--gold-dark));
+        linear-gradient(-45deg, transparent 0%, transparent 40%, #fff9 50%, transparent 60%),
+        linear-gradient(var(--gold-light) 40%, var(--gold-dark));
     background-size:
         300% 100%,
         100% 100%;
     background-clip: text;
-    text-shadow: 0 0 .25rem var(--gold-light);
     animation: sheen 3s infinite;
 }
 .header {
-    display: flex;
-    flex-direction: column;
-    place-items: center;
     position: sticky;
     top: 0;
     left: 0;

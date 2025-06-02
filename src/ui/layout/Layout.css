@@ -25,22 +25,6 @@ main {
     place-items: center;
     flex: 1;
 }
-@keyframes sheen {
-    0% {
-        background-position: 0% 0%;
-    }
-    33%, 100% {
-        background-position: 100% 0%;
-    }
-}
-@keyframes sheen-header {
-    0% {
-        background-position: -100% 0%, center center;
-    }
-    33%, 100% {
-        background-position: 100% 0%, center center;
-    }
-}
 h2 {
     background: linear-gradient(-45deg, var(--gold-light) 0%, var(--gold-light) 40%, var(--white-gold) 50%, var(--gold-light) 60%);
     background-clip: text;

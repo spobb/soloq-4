@@ -1,7 +1,7 @@
 import { ReactElement, ReactNode, useState } from "react";
 import { Typography, Popover } from "@mui/material";
 
-export function HoverPopover({ children, text }: { children: ReactNode, text: string }): ReactElement {
+export function HoverPopover({ children, text, icon }: { children: ReactNode, text: string, icon?: ReactNode }): ReactElement {
     const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
 
     const handlePopoverOpen = (event: React.MouseEvent<HTMLElement>) => {
@@ -42,7 +42,7 @@ export function HoverPopover({ children, text }: { children: ReactNode, text: st
                 disableEnforceFocus
                 inert
             >
-                <Typography sx={{ p: 1 }} color="primary" fontSize='1.1rem' fontFamily='Spiegel'>{text}</Typography>
+                <Typography sx={{ p: 1 }} color="primary" fontSize='1.1rem' fontFamily='Spiegel'>{text}&nbsp;{icon}</Typography>
             </Popover>
         </>
     );

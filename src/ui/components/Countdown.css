@@ -1,0 +1,13 @@
+.countdown-digit {
+    vertical-align: bottom;
+    display: inline-flex;
+    animation: slideIn 0.5s ease-out;
+}
+@keyframes slideIn {
+    0% {
+        filter: brightness(150%);
+    }
+    100% {
+        filter: brightness(100%);
+    }
+}

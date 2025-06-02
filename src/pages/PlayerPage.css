@@ -3,7 +3,7 @@
     align-items: flex-end;
     width: 384px;
     margin-bottom: 4rem;
-    margin-top: 250px;
+    margin-top: 200px;
     overflow: visible;
 }
 .background-img-big {
@@ -32,13 +32,53 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 800px;
     width: 512px;
-    background: url('/banners/unranked') no-repeat;
-    background-position: center;
-    transform: translateY(-6rem);
-    background-size: 800px;
+    margin-bottom: -2rem;
+    background-image: url('/banners/unranked.png');
+    background-repeat: no-repeat;
+    background-position: center 0%;
+    background-size: 640px 640px;
+    filter: drop-shadow(0 8px 8px #111);
+    animation: banner-bounce 1 1s ease-in-out forwards;
 }
 .player-page-body {
-    background: #fff;
+    background: radial-gradient(#222, #000);
+    & main {
+        width: 1280px;
+        margin: 0 auto;
+    }
+    & .header {
+        margin-bottom: 0 !important;
+    }
+    & footer {
+        margin-top: 0;
+    }
+}
+@keyframes banner-bounce {
+    0% {
+        background-position-y: -640px;
+        background-size: 640px 660px;
+        animation-timing-function: ease-in;
+    }
+    40% {
+        background-position-y: 0px;
+        background-size: 640px 640px;
+        animation-timing-function: ease-out;
+    }
+    60% {
+        background-position-y: -35px;
+        background-size: 640px 650px;
+    }
+    75% {
+        background-position-y: 0px;
+        background-size: 640px 640px;
+    }
+    90% {
+        background-position-y: -10px;
+        background-size: 640px 643px;
+    }
+    100% {
+        background-position-y: 0%;
+        background-size: 640px 640px;
+    }
 }

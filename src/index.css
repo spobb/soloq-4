@@ -28,6 +28,7 @@
     --gold-light: #C4A15B;
     --gold-dark: #7a5917;
     --white-gold: #ffe7b7;
+    --league-yellow: #c28f2c;
     /* CHALLENGE RANKING */
     /* uses gold from UI colors */
     --silver-light: #C0C0C0;
@@ -44,13 +45,15 @@
     --rank-emerald: #50C878;
     --rank-diamond: #00B4FF;
     --rank-master: #f156ff;
+    cursor: url('/cursors/hand.png'), auto
 }
+/* CUSTOM CURSOR */
+a, button, [role="button"], input[type="button"], input[type="submit"] {
+    cursor: url('/cursors/hand-glow.png'), auto !important;
+}
+/* GLOBAL CLASSES */
 .icon-bg {
     background: radial-gradient(var(--bg-blue-light), var(--bg-blue-dark)) !important;
-    /* background: var(--grey-dark) !important; */
-    /* &:hover {
-        background: var(--grey-light) !important;
-    } */
 }
 .loading {
     position: absolute;
@@ -65,8 +68,18 @@
 .lol-button {
     border-width: 1px solid transparent !important;
     border-image: linear-gradient(var(--gold-light), var(--gold-dark)) 1 !important;
-    transition: all .5s;
     &:hover {
-        box-shadow: 0 0 10px 1px #c0fcfd66;
+        background-color: var(--bg-blue-light);
+    }
+}
+.no-select {
+    user-select: none;
+}
+@keyframes sheen {
+    0% {
+        background-position: 0% 0%;
+    }
+    33%, 100% {
+        background-position: 150% 0%;
     }
 }

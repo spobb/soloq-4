@@ -7,9 +7,20 @@ import { RULES } from "data/rules.data";
 
 export function RulesPage(): ReactElement {
     return (<>
-        <Box sx={{ display: 'flex', placeItems: 'center', flex: 1, flexDirection: 'column', gap: '1rem' }}>
+        <Box sx={{
+            display: 'flex',
+            placeItems: 'center',
+            flex: 1,
+            flexDirection: 'column',
+            gap: '0.5rem'
+        }}>
             {RULES.map((rule, i) => (
-                <Accordion sx={{ boxShadow: 'none', width: '50vw', borderWidth: '2px' }} className="icon-bg gold-border" key={i}>
+                <Accordion sx={{
+                    boxShadow: 'none',
+                    width: '50vw',
+                    borderWidth: '2px'
+                }}
+                    className="icon-bg gold-border" key={i}>
                     <AccordionSummary expandIcon={<ExpandMore color="secondary" />}>
                         <Typography component='span' variant='h5'>{rule.summary}</Typography>
                     </AccordionSummary>

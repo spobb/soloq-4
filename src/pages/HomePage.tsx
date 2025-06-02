@@ -5,6 +5,7 @@ import { Player } from "components/Player";
 import { ColumnHeader } from "components/ColumnHeader";
 
 import { Typography, Box, CircularProgress, Grid } from "@mui/material";
+import { ErrorPage } from "./ErrorPage";
 
 export function HomePage(): ReactElement {
     const { summoners, loading, error } = useSummoner();
@@ -14,7 +15,7 @@ export function HomePage(): ReactElement {
         <Typography variant="body1">Loading...</Typography>
     </Box>
     );
-    if (error) return <p>{error}</p>;
+    if (error) return <ErrorPage {...error} />;
 
     return (
         <Box

@@ -1,4 +1,10 @@
 footer {
     margin-top: 6rem;
     background-color: var(--bg-blue-dark);
+    & .footer-link {
+        transition: all .2s;
+        &:hover {
+            color: rgba(255, 255, 255, 1);
+        }
+    }
 }

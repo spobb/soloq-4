@@ -36,10 +36,12 @@
     border: 4px solid transparent;
     border-image: linear-gradient(var(--grey-light) 70%, var(--grey-dark)) 1;
     background: radial-gradient(var(--bg-blue-light), var(--bg-blue-dark));
-    transition: box-shadow ease .5s;
     & .border-divider {
         border-left: 4px solid transparent;
         border-image: linear-gradient(var(--grey-light) 70%, var(--grey-dark)) 1;
+    }
+    &:hover {
+        background: radial-gradient(var(--bg-teal-dark), var(--bg-blue-light));
     }
 }
 .gold-border {
@@ -67,7 +69,7 @@
     }
 }
 .player:hover {
-    cursor: pointer;
+    cursor: url('/cursors/hand-glow.png'), auto;
 }
 .player:hover,
 .avatar-big:hover {

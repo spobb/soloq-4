@@ -3,6 +3,7 @@ import { Typography, Box, Grid, Chip } from "@mui/material";
 
 import type { Summoner } from "types/summoner.type";
 import { HoverPopover } from "./HoverPopover";
+import { PlayerName } from "./PlayerName";
 import { Winrate } from "./Winrate";
 
 import './Player.css';
@@ -37,33 +38,33 @@ export function Player({ data }: { data: Summoner | null }) {
             <Grid container columns={7} width='100%'>
                 {/* AVATAR GRID CELL */}
                 <Grid size={1}>
-                    <div className="avatar">
+                    <div className="avatar no-select">
                         {(data.tier && data.tier !== 'UNRANKED') && <img
                             src={`/borders/${data.tier}.png`}
                             alt={`${data.tier} rank border`}
                             className={`background-img ${(data.tier.toLowerCase())}`}
                         />}
                         <div className="img-wrapper">
-                            <HoverPopover text={data.gameName}>
-                                <img onError={(e) => { e.currentTarget.src = 'https://placehold.co/96x96' }}
-                                    src={`/avatars/${data.gameName}`}
-                                />
-                            </HoverPopover>
+                            <img onError={(e) => { e.currentTarget.src = 'https://placehold.co/96x96' }}
+                                src={`/avatars/${data.gameName}`}
+                            />
                         </div>
                     </div>
                 </Grid>
                 {/* MAIN PLAYER CARD CONTENT GRID CELL */}
                 <Grid className="player-main" size={3}>
                     <Box flexDirection='column'>
-                        <Typography
-                            variant='body1'
-                            component='h4'
-                            className="player-name"
-                            color={challengeRankColorVar}
-                        >{data.gameName}</Typography>
+                        <PlayerName gameName={data?.gameName} tagLine={data.tagLine!}>
+                            <Typography
+                                variant='body1'
+                                component='h4'
+                                className="player-name"
+                                color={challengeRankColorVar}
+                            >{data.gameName}</Typography>
+                        </PlayerName>
                         <Chip
                             variant="outlined"
-                            label={`${leagueRankFR} ${data.rank}`}
+                            label={<>{leagueRankFR}&nbsp;{!['MASTER', 'GRANDMASTER', 'CHALLENGER'].includes(data.tier) ? data.rank : ''}&nbsp;<Typography fontSize='0.75rem' component='span' variant="body1">{data.leaguePoints}LP</Typography></>}
                             sx={{ color: leagueRankColorVar }}
                         />
                     </Box>

@@ -8,7 +8,7 @@ import { SortDirection } from '@mui/material';
 type SummonerContextType = {
     summoners: (Summoner | null)[];
     loading: boolean;
-    error: string | null;
+    error: Error | null;
     sortBy: string;
     setSortBy: Dispatch<SetStateAction<string>>;
     sortDirection: string | boolean;
@@ -31,7 +31,7 @@ export const useSummoner = (): SummonerContextType => useContext(SummonerContext
 export function SummonerProvider({ children }: { children: ReactNode }): ReactElement {
     const [summoners, setSummoners] = useState<(Summoner)[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
-    const [error, setError] = useState<string | null>(null);
+    const [error, setError] = useState<Error | null>(null);
     const [sortBy, setSortBy] = useState<string>('adjustedLP');
     const [sortDirection, setSortDirection] = useState<SortDirection>('desc');
 

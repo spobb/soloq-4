@@ -66,7 +66,6 @@ export async function getSummoners(): Promise<(Summoner)[]> {
             })
         );
         const sortedData = sort(data, 'adjustedLP', 'desc');
-        console.log(data, sortedData);
         for (let i = 0; i < sortedData.length; i++) {
             sortedData[i].position = i + 1;
         }

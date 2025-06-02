@@ -27,6 +27,7 @@ export function ColumnHeader({ children, label }: { children: ReactNode, label: 
                     paddingBottom: '1rem',
                     justifyContent: 'center',
                 }}
+                role='button'
             >
                 <Box sx={{ width: '3rem' }} />
                 {children}
